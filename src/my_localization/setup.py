@@ -23,7 +23,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-        'ekf_node = my_localization.ekf_node:main'
+        'ekf_node = my_localization.ekf_node:main',
+        'noisy_odom = my_localization.noisy_odom:main',
+        'evaluate = my_localization.evaluate:main'
         ],
     },
 )

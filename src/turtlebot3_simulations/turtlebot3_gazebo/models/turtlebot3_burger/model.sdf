@@ -407,6 +407,7 @@
 
       <odometry_topic>odom</odometry_topic>
       <odometry_frame>odom</odometry_frame>
+      <odometry_source>0</odometry_source>
       <robot_base_frame>base_footprint</robot_base_frame>
 
     </plugin>
