@@ -1,3 +1,4 @@
+from networkx import sigma
 import numpy as np
 import rclpy
 from rclpy.node import Node
@@ -72,7 +73,10 @@ class EkfLocalizer(Node):
         if self.imu_offset is None:
             # align IMU yaw frame with the odom frame at startup
             self.imu_offset = self.x[2] - yaw_imu
-        z = wrap(yaw_imu + self.imu_offset)
+
+        sigma = self.get_parameter('r_yaw').value
+        z = wrap(yaw_imu + self.imu_offset + np.random.randn() * sigma)
+        # z = wrap(yaw_imu + self.imu_offset)
 
         # UPDATE
         H = np.array([[0.0, 0.0, 1.0]])
